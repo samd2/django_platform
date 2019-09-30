@@ -36,7 +36,8 @@ git path_to_app_repo do
   revision app_repo['git_revision']
   enable_submodules true
   environment app_repo['environment']
-  notifies :restart, "service[#{apache_service}]", :delayed
+  #notifies :restart, "service[#{apache_service}]", :delayed
+  notifies :restart, "service[apache2]", :delayed
 end
 
 ruby_block 'Git Repo Synced' do
